@@ -99,5 +99,3 @@ module.exports = ({ env }) => {
     },
   };
 };
-
-console.log("1");
