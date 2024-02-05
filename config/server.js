@@ -1,10 +1,22 @@
-module.exports = ({ env }) => ({
-  host: env('HOST', '0.0.0.0'),
-  port: env.int('PORT', 1337),
-  app: {
-    keys: env.array('APP_KEYS'),
-  },
-  webhooks: {
-    populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
-  },
-});
+const { parse } = require("pg-connection-string");
+
+module.exports = ({ env }) => {
+  const { host, port, database, user, password } = parse(
+    process.env.DATABASE_URL
+  );
+
+  return {
+    connection: {
+      client: "postgres",
+      connection: {
+        host,
+        port,
+        database,
+        user,
+        password,
+        ssl: { rejectUnauthorized: false },
+      },
+      debug: false,
+    },
+  };
+};
