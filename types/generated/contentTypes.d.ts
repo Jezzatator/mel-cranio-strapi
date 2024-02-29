@@ -868,6 +868,83 @@ export interface ApiLaCranioLaCranio extends Schema.CollectionType {
   };
 }
 
+export interface ApiNavBarNavBar extends Schema.CollectionType {
+  collectionName: 'nav_bars';
+  info: {
+    singularName: 'nav-bar';
+    pluralName: 'nav-bars';
+    displayName: 'NavBar';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Accueil: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    LaTherapie: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    APropos: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    LesLieux: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Tarifs: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Contact: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::nav-bar.nav-bar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::nav-bar.nav-bar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::nav-bar.nav-bar',
+      'oneToMany',
+      'api::nav-bar.nav-bar'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -887,6 +964,7 @@ declare module '@strapi/types' {
       'api::about.about': ApiAboutAbout;
       'api::home.home': ApiHomeHome;
       'api::la-cranio.la-cranio': ApiLaCranioLaCranio;
+      'api::nav-bar.nav-bar': ApiNavBarNavBar;
     }
   }
 }
