@@ -1058,6 +1058,76 @@ export interface ApiNavBarNavBar extends Schema.CollectionType {
   };
 }
 
+export interface ApiTarifTarif extends Schema.CollectionType {
+  collectionName: 'tarifs';
+  info: {
+    singularName: 'tarif';
+    pluralName: 'tarifs';
+    displayName: 'Tarif';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    TitreTarifs: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    DescTarifs: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    PrixTarifs: Attribute.Enumeration<['Prix par 60min', 'Prix par 90min']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    TitreAssurSuisse: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    DescAssurSuisse: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tarif.tarif',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tarif.tarif',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::tarif.tarif',
+      'oneToMany',
+      'api::tarif.tarif'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1079,6 +1149,7 @@ declare module '@strapi/types' {
       'api::la-cranio.la-cranio': ApiLaCranioLaCranio;
       'api::lieux.lieux': ApiLieuxLieux;
       'api::nav-bar.nav-bar': ApiNavBarNavBar;
+      'api::tarif.tarif': ApiTarifTarif;
     }
   }
 }
