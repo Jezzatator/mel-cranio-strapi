@@ -868,6 +868,119 @@ export interface ApiLaCranioLaCranio extends Schema.CollectionType {
   };
 }
 
+export interface ApiLieuxLieux extends Schema.CollectionType {
+  collectionName: 'lieuxes';
+  info: {
+    singularName: 'lieux';
+    pluralName: 'lieuxes';
+    displayName: 'Lieux';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    TitreLieu1: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    LienLieu1: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    TitreLieu2: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    DescriptionLieu2: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    DescriptionLieu: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    DescriptionLieu1: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    LienLieu2: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    TitreLieu3: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    DescriptionLieu3: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    LienLieu3: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    LesLieux: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    SoustitreLesLieux: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::lieux.lieux',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::lieux.lieux',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::lieux.lieux',
+      'oneToMany',
+      'api::lieux.lieux'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiNavBarNavBar extends Schema.CollectionType {
   collectionName: 'nav_bars';
   info: {
@@ -964,6 +1077,7 @@ declare module '@strapi/types' {
       'api::about.about': ApiAboutAbout;
       'api::home.home': ApiHomeHome;
       'api::la-cranio.la-cranio': ApiLaCranioLaCranio;
+      'api::lieux.lieux': ApiLieuxLieux;
       'api::nav-bar.nav-bar': ApiNavBarNavBar;
     }
   }
