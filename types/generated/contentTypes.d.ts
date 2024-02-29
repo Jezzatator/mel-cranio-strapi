@@ -1064,6 +1064,7 @@ export interface ApiTarifTarif extends Schema.CollectionType {
     singularName: 'tarif';
     pluralName: 'tarifs';
     displayName: 'Tarif';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1086,12 +1087,6 @@ export interface ApiTarifTarif extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    PrixTarifs: Attribute.Enumeration<['Prix par 60min', 'Prix par 90min']> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     TitreAssurSuisse: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1099,6 +1094,12 @@ export interface ApiTarifTarif extends Schema.CollectionType {
         };
       }>;
     DescAssurSuisse: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    PrixTarifs: Attribute.Blocks &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
