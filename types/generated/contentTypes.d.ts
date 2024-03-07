@@ -957,6 +957,12 @@ export interface ApiLieuxLieux extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    PourPlusDInformations: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
