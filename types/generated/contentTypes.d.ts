@@ -1111,7 +1111,7 @@ export interface ApiTarifTarif extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    DescAssurSuisse: Attribute.Blocks &
+    DescAssurSuiss: Attribute.Blocks &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
