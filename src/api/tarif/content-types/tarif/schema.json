@@ -40,15 +40,15 @@
       },
       "type": "string"
     },
-    "DescAssurSuisse": {
+    "PrixTarifs": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "text"
+      "type": "blocks"
     },
-    "PrixTarifs": {
+    "DescAssurSuisse": {
       "pluginOptions": {
         "i18n": {
           "localized": true

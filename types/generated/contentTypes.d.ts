@@ -1105,13 +1105,13 @@ export interface ApiTarifTarif extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    DescAssurSuisse: Attribute.Text &
+    PrixTarifs: Attribute.Blocks &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    PrixTarifs: Attribute.Blocks &
+    DescAssurSuisse: Attribute.Blocks &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
